@@ -15,7 +15,7 @@ spring:
         - id: books-api
           uri: http://localhost:8082/books
           predicates:
-            - Path=/**
+          - Path=/**
         - id: purchases-api
           uri: http://localhost:8080/purchases
           predicates:
