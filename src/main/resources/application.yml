@@ -1,0 +1,22 @@
+server.port: 9000
+
+application:
+  name: gateway
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: clients-api
+          uri: http://localhost:8081/clients
+          predicates:
+          - Path=/**
+        - id: books-api
+          uri: http://localhost:8082/books
+          predicates:
+            - Path=/**
+        - id: purchases-api
+          uri: http://localhost:8080/purchases
+          predicates:
+          - Path=/**
