@@ -1,10 +1,8 @@
 server.port: 9000
 
-application:
-  name: gateway
-
-
 spring:
+  application:
+    name: gateway
   cloud:
     gateway:
       routes:
