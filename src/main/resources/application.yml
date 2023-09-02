@@ -1,4 +1,5 @@
-server.port: 9000
+server:
+  port: 9000
 
 spring:
   application:
@@ -7,14 +8,18 @@ spring:
     gateway:
       routes:
         - id: clients-api
-          uri: http://localhost:8081/clients
+          uri: http://localhost:8081/v1/clients
           predicates:
-          - Path=/**
+            - Path=/v1/clients/**
         - id: books-api
-          uri: http://localhost:8082/books
+          uri: http://localhost:8082/v1/books
           predicates:
-          - Path=/**
+            - Path=/v1/books/**
         - id: purchases-api
-          uri: http://localhost:8080/purchases
+          uri: http://localhost:8080/v1/purchases
           predicates:
-          - Path=/**
+            - Path=/v1/purchases/**
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
